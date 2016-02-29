@@ -1,0 +1,100 @@
+# CLASE DE SERIES DE TIEMPO
+# 29/02/2016
+Datos especiales: NA
+#En algunos casos las componentes de un objeto pueden ser no completamente conocidas
+#Cuando un elemento o valor es not available le asignamos el valor especial NA
+#En general una operación con elementos NA resulta NA
+
+x<-NA
+x+1
+y<-c(x,3,5,x) #Al vector le ponemos 2 NA,
+mean(y,na.rm = TRUE) # Le digo que calcule la media del vector sin tomaar en cuenta los valores NA
+sqrt(-17)
+sqrt(-17+0i) #Devuelve un numero complejo porque
+x<-5/0
+exp(-x)
+exp(x)-exp(x) #Es una indeterminación
+v<-numeric() #Almacenar un vector numérico vacío
+v[3]<-17 #En la entrada 3 va a asignar el valor de 17
+#
+v
+x<-3 #Es equivalente a 
+3->x
+x1<-logical(4)
+x1
+x4<-character(4)
+x4
+x<-c(1:10)
+is.numeric(x)
+is.vector(x)
+is.complex(x)
+is.character(x)
+#A no ser que mediante una opción de la función 
+x<-as.character(x)
+x
+nombre<-c("Luis","María")
+edad<-c(23,24)
+varon<-c(TRUE,FALSE); adult<-edad>18
+adult
+estatura<-c(1.77,1.78)
+estatura[2]
+#R tiene grandes facilidades para generar vectores de secuencias de números
+#El operador más usual es: desde:hasta ) de uno, que genera una secuencia
+#incrementos (o decremento si hasta es menor que en Este operador tiene ña prioridad más )
+# de varios argumentos (from, to, by, length)
+#Exisen funciones similares que realizan los cálculos más rápidamente (muy útiles a la hora de programar)
+#Una funcion relacionada es 
+# rep()
+#?seq()
+#Que permite duplicar un objeto de formas diversas. Su forma más sencilla es
+#rep(x,times=5) que x, una tras otra
+
+pi:1
+seq(0,1,length=10)
+seq(3)
+seq(1,5,by=.5)
+-1:1/0
+rep(1:4,2)
+rep(1:4,c(2,3,1,2))
+rep(1:4,c(2,2)) #Representa un error
+sequence(c(2,3))
+#### MUESTRAS #########
+x<-c(1:10)
+sample(x,3)
+sample(x)
+y<-sample(5:15,5)
+y
+###### VECTOR DE NOMBRES
+frutos<-c(5,10,1,20)
+names(frutos)<-c("pera","banana","melon","naranja")
+postre<-frutos[c("pera","melon")]
+postre
+######## MATRICES
+matrix()
+x<-c(1:6)
+dim(x)<-c(2,3)
+dimnames<-list(c("Fila 1", "Fila 1"),c("Col1","Col2","Col3"))
+matriz1<-(matrix(1:12,ncol = 3,byrow=TRUE,dimnames=list(letters[1:4],LETTERS[1:3])))
+matriz1
+matriz1[1,1]
+matriz1[,c(1,3)] #Cuando dejamos vacio la parte de los renglones tomamos todos los renglones
+###### Funciones utiles para trabajar con matrices en R
+#ncol... numero de columnas de x
+#nrow... numero de filas de x
+#t(x)... Transpuesta de x
+#diag(x)... extrae diagonal de matriz o crea una matriz diagonal
+#col(x)... crea una matriz con un elemento ij igaul al valor j
+#row... crea una matriz con un elemento ij igual al valor i
+#cbind... combina secuencias de vectores / matrices por columnas
+#rbind... combina secuencias de vectores / matrices por renglones
+
+###EJEMPLO
+x<-matrix(1:6,2,3)
+x
+y<-matrix(1:6,3,2)
+y
+y[3,];y[3]
+ncol(x);nrow(y)
+t(x)
+cbind(1,x)
+cbind(1:3,1:6)
